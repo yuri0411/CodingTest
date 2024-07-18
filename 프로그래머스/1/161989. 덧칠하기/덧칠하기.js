@@ -4,7 +4,7 @@ function solution(n, m, section) {
 
     for(let i = 0; i < walls.length; i++) {
         if(walls[i]) continue
-        walls.splice(i, m, true)
+        walls.fill(true, i, i + m)
 
         paint++
     }
