@@ -4,7 +4,7 @@ function solution(keymap, targets) {
     for(let key of keymap) {
         for(let i = 0; i < key.length; i++) {
             if(keyMap[key[i]]) {
-                keyMap[key[i]] =  keyMap[key[i]] > i+1 ? i+1 :  keyMap[key[i]]
+                keyMap[key[i]] = Math.min( keyMap[key[i]], i + 1)
             } else {
                 keyMap[key[i]] = i + 1
             }
