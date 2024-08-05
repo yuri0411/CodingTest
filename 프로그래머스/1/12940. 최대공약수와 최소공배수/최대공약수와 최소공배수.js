@@ -1,11 +1,11 @@
+function calcGcd(a, b) {
+    if(b === 0) return a
+    return a > b ? calcGcd(b, a % b) : calcGcd(a, b % a)
+}
+
 function solution(n, m) {
-    let gcd = 0
+    const gcb = calcGcd(n, m)
+    const lcm = (n * m) / gcb
 
-    for(let i = 1; i <= Math.min(n, m); i++) {
-        if(n % i === 0 && m % i === 0) {
-            gcd = i
-        }
-    }
-
-    return [gcd, gcd * (n / gcd ) * ( m / gcd )];
+    return [gcb, lcm];
 }
