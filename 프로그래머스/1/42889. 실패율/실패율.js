@@ -1,14 +1,12 @@
 function solution(N, stages) {
-    const stageMap = {}
-    let length = stages.length
-    for(let stage of stages) {
-        if(stageMap[stage]) {
-            stageMap[stage].count++
-        } else {
-            stageMap[stage] = {count: 1}
+    const stageMap = stages.reduce((acc, stage) => {
+        if(stage <= N) {
+            acc[stage] = acc[stage] ? { count: acc[stage].count + 1 } : { count: 1 };
         }
-    }
-
+        return acc;
+    }, {})
+    
+    let length = stages.length
     for (let i = 1; i <= N; i++) {
         if(stageMap[i]) {
             stageMap[i].percent = stageMap[i].count / length * 100
@@ -18,5 +16,5 @@ function solution(N, stages) {
         }
     }
 
-    return Object.entries(stageMap).sort(([akey, avalue], [bkey, bvalue]) => (bvalue.percent - avalue.percent) || akey - bkey ).map(([key]) => +key).slice(0, N);
+    return Object.keys(stageMap).sort((a, b) => (stageMap[b].percent - stageMap[a].percent) || a - b ).map(Number);
 }
