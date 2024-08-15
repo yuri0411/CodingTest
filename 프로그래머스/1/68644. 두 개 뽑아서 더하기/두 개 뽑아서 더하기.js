@@ -3,9 +3,10 @@ function solution(numbers) {
 
     for (let i = 0; i < numbers.length; i++) {
         for (let j = i + 1; j < numbers.length; j++) {
-            const double = numbers[i] + numbers[j];
-            if(!answer.includes(double)) answer.push(double)
+            answer.push(numbers[i] + numbers[j])
         }
     }
+    
+    answer = [... new Set(answer)]
     return answer.sort((a, b) => a - b);
 }
