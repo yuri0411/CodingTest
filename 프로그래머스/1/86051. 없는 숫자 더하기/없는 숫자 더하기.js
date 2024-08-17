@@ -1,6 +1,8 @@
 function solution(numbers) {
-    const map = new Map(numbers.map((num) => [num, num]));
-    const newNumbers = Array.from({length: 10}, (_, i) => i)
-    
-    return newNumbers.reduce((acc, curr) => !map.has(curr) ? acc + curr : acc, 0);
+    let answer = 0;
+
+    for(let i = 0; i <= 9; i++) {
+        if(!numbers.includes(i)) answer += i;
+    }
+    return answer
 }
