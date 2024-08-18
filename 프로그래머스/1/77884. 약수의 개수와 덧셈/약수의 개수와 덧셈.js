@@ -6,7 +6,6 @@ function solution(left, right) {
             if(i % j === 0) submultiple++
         }
         if(submultiple % 2 === 0) {
-            console.log(i)
             answer += i
         } else {
             answer -= i
@@ -14,3 +13,7 @@ function solution(left, right) {
     }
     return answer;
 }
+
+
+// 제곱근의 값이 정수이면 약수의 개수는 홀수다.
+// Number.isInteger(Math.sqrt(i))
