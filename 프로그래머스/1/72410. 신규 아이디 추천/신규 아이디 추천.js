@@ -1,7 +1,7 @@
 
 function solution(new_id) {
     let validId = new_id
-                    .replace(/[A-Z]/g, (id) => id.toLowerCase())
+                    .toLowerCase()
                     .match(/[a-z0-9-_.\s]/g)
                     .reduce((acc, curr) => {
                         if(acc.length === 0) return acc.concat([curr]);
